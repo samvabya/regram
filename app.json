@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "regram",
+    "slug": "regram",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#fbf6ef"
+      },
+      "package": "com.samvabya.regram"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/icon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/regram.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#fbf6ef"
+        }
+      ],
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "e004214d-d422-4902-afd8-ad70437e8038"
+      }
+    },
+    "owner": "samvabya"
+  }
+}
