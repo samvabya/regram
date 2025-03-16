@@ -1,11 +1,11 @@
 import { View, Image } from "react-native";
 import React from "react";
 
-const userpic = () => {
+const userpic = ({imageUrl = "https://images.wsj.net/im-735617?width=1280&size=1"}) => {
   return (
       <Image
         source={{
-          uri: "https://images.wsj.net/im-735617?width=1280&size=1",
+          uri: imageUrl,
         }}
         style={{ width: 40, height: 40, borderRadius: 50 }}
       />

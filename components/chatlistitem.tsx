@@ -1,10 +1,10 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import React from "react";
 import Userpic from "./userpic";
 
 const ChatListItem = () => {
   return (
-    <Pressable onPress={() => {}}>
+    <TouchableOpacity>
       <View className="flex-row items-center ml-10 bg-primary py-4 px-4 rounded-l-3xl mb-2">
         <Userpic />
         <View className="ml-2">
@@ -16,7 +16,7 @@ const ChatListItem = () => {
           </Text>
         </View>
       </View>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

@@ -1,17 +1,12 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, Alert } from "react-native";
 import React from "react";
 import { IconButton } from "react-native-paper";
+import { router } from "expo-router";
 
-const HomeHeader = () => {
+const HomeHeader = ({ iconShown = true }) => {
   return (
     <View className="flex-row items-center">
       <View className="flex-1 flex-col">
-        {/* <Text
-            className="ml-10 mt-6"
-            style={{ fontFamily: "Poppins_400Regular", fontSize: 30 }}
-          >
-            Regram
-          </Text> */}
         <Image
           className="ml-10 mt-6"
           source={require("../assets/images/regram.png")}
@@ -24,14 +19,18 @@ const HomeHeader = () => {
           Minimal Social App
         </Text>
       </View>
-      <View className="flex mr-6">
-        <IconButton
-          icon={require("../assets/icons/setting.png")}
-          iconColor="black"
-          size={20}
-          onPress={() => {}}
-        />
-      </View>
+      {iconShown && (
+        <View className="flex mr-6">
+          <IconButton
+            icon={require("../assets/icons/setting.png")}
+            iconColor="black"
+            size={20}
+            onPress={() => {
+              router.push("/settings");
+            }}
+          />
+        </View>
+      )}
     </View>
   );
 };
