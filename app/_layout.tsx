@@ -8,7 +8,6 @@ import { getUserData } from '@/services/userService'
 const _layout = () => {
   return (
     <AuthProvider>
-      <StatusBar className="bg-secondary" barStyle="dark-content" />
         <Mainlayout />
     </AuthProvider>
   )

@@ -18,7 +18,6 @@ const _layout = () => {
         },
       }}
     >
-      <StatusBar className="bg-secondary" barStyle="dark-content" />
       <Tabs.Screen
         name="index"
         options={{

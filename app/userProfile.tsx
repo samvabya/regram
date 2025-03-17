@@ -1,17 +1,36 @@
-import { View, StatusBar, ActivityIndicator, FlatList, Text } from "react-native";
-import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StatusBar,
+  ActivityIndicator,
+  FlatList,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 import CustomHeader from "@/components/customheader";
-import { useAuth } from "@/contexts/AuthContext";
+import { useLocalSearchParams } from "expo-router";
+import { getUserData, getUserPosts } from "@/services/userService";
 import UserDetailsHeader from "@/components/userDetailsHeader";
 import PostItem from "@/components/postItem";
-import { getUserPosts } from "@/services/userService";
 
 var limit = 0;
-const profile = () => {
-  const {user} = useAuth() as { user: any  };
+export default function UserProfile() {
+  const { userId } = useLocalSearchParams();
+  const [user, setUser] = useState<any>(null);
+  const [startLoading, setStartLoading] = useState(true);
   const [posts, setPosts] = useState<any>([]);
   const [hasMore, setHasMore] = useState(true);
 
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+
+  const getUserDetails = async () => {
+    let res = await getUserData(userId);
+    if (res.success) {
+      setUser(res.data);
+    }
+    setStartLoading(false);
+  };
 
   const getPosts = async () => {
     if (!hasMore) {
@@ -19,7 +38,7 @@ const profile = () => {
     }
 
     limit = limit + 4;
-    let res = await getUserPosts(user.id, limit);
+    let res = await getUserPosts(userId, limit);
     if (res.success && res.data) {
       if (posts.length === res.data.length) {
         setHasMore(false);
@@ -27,6 +46,14 @@ const profile = () => {
       setPosts(res.data);
     }
   };
+
+  if (startLoading) {
+    return (
+      <View>
+        <ActivityIndicator className="mt-4 color-tertiary" size="large" />
+      </View>
+    );
+  }
 
   if (!user) {
     return (
@@ -63,12 +90,9 @@ const profile = () => {
         }
         onEndReached={() => {
           getPosts();
-          console.log("Reached the end");
         }}
         onEndReachedThreshold={0}
       />
     </View>
   );
-};
-
-export default profile;
+}
