@@ -44,7 +44,7 @@ const profile = () => {
         renderItem={({ item }) => <PostItem item={item} />}
         ListHeaderComponent={
           <View>
-            <CustomHeader title="Profile" />
+            <CustomHeader title="Profile" logoutBtnShown/>
             <UserDetailsHeader user={user} editable/>
           </View>
         }
