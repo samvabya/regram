@@ -32,32 +32,6 @@ const _layout = () => {
         }}
       />
       <Tabs.Screen
-        name="chats"
-        options={{
-          title: "Chats",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Image
-              source={require("../../assets/icons/chats.png")}
-              style={{ width: size, height: size, tintColor: color }}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="headsup"
-        options={{
-          title: "Heads Up",
-          headerShown: false,
-          tabBarIcon: ({ color, size }) => (
-            <Image
-              source={require("../../assets/icons/headsup.png")}
-              style={{ width: size, height: size, tintColor: color }}
-            />
-          ),
-        }}
-      />
-      <Tabs.Screen
         name="profile"
         options={{
           title: "Profile",

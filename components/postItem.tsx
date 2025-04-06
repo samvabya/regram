@@ -86,7 +86,7 @@ export default function PostItem({
           });
         }}
       >
-        <Userpic imageUrl={getSupabaseUrl(item.user.file)} />
+        <Userpic imageUrl={item.user.image} />
         <View className="flex-1 flex-col ml-2">
           <Text style={{ fontFamily: "Poppins_500Medium", fontSize: 16 }}>
             {item.user.name}

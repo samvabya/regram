@@ -12,7 +12,6 @@ const profile = () => {
   const [posts, setPosts] = useState<any>([]);
   const [hasMore, setHasMore] = useState(true);
 
-
   const getPosts = async () => {
     if (!hasMore) {
       return;
@@ -46,7 +45,7 @@ const profile = () => {
         ListHeaderComponent={
           <View>
             <CustomHeader title="Profile" />
-            <UserDetailsHeader user={user} />
+            <UserDetailsHeader user={user} editable/>
           </View>
         }
         ListFooterComponent={
